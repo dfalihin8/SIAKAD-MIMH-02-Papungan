@@ -5,7 +5,7 @@ import Link from "next/link";
 import * as XLSX from "xlsx";
 import Sidebar from "@/components/Sidebar";
 import { useRouter } from "next/navigation";
-import BackgroundVideo from "@/components/BackgroundVideo";
+
 
 export default function RekapPage() {
     const [dataSiswa, setDataSiswa] = useState<any[]>([]);

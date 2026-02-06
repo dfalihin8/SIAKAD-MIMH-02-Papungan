@@ -5,7 +5,7 @@ import * as XLSX from "xlsx";
 import Link from "next/link";
 import Sidebar from "@/components/Sidebar";
 import { useRouter } from "next/navigation";
-import BackgroundVideo from "@/components/BackgroundVideo";
+
 
 export default function SiswaPage() {
     const [dataSiswa, setDataSiswa] = useState<any[]>([]);
@@ -110,7 +110,7 @@ export default function SiswaPage() {
             const workbook = XLSX.read(arrayBuffer, { cellDates: true });
             const worksheet = workbook.Sheets[workbook.SheetNames[0]];
             const rawRows: any[][] = XLSX.utils.sheet_to_json(worksheet, { header: 1, defval: "" });
-            let headerRowIndex = rawRows.findIndex(row => row.some(cell => String(cell).toLowerCase().includes("nama")));
+            const headerRowIndex = rawRows.findIndex(row => row.some(cell => String(cell).toLowerCase().includes("nama")));
             if (headerRowIndex === -1) {
                 alert("❌ Header tidak ditemukan!");
                 setImporting(false);

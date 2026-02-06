@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Sidebar from "@/components/Sidebar";
-import BackgroundVideo from "@/components/BackgroundVideo";
+
 import { useRouter } from "next/navigation";
 
 // --- COMPONENTS ---
@@ -291,7 +291,7 @@ export default function ManajemenAkunPage() {
             router.push("/login");
         }
         loadUsers();
-    }, []);
+    }, [router]);
 
     const handleAddUser = async (newUser: any) => {
         setLoading(true);
