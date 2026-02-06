@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media print {
+  @page {
+    margin: 1cm;
+    size: landscape;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+
+  /* Hide sidebar, buttons, decorations */
+  aside,
+  button,
+  video,
+  .fixed.inset-0,
+  nav,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Ensure main content takes full width */
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    position: static !important;
+  }
+
+  /* Fix table overflow */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  th,
+  td {
+    border: 1px solid #ddd !important;
+    color: black !important;
+  }
+
+  /* Specific fix for Rekap page containers */
+  .overflow-hidden {
+    overflow: visible !important;
+  }
+
+  /* Background fix */
+  .bg-\[\#0f172a\],
+  .bg-\[\#1e293b\],
+  .bg-slate-900 {
+    background-color: white !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .text-white,
+  .text-gray-400,
+  .text-blue-400 {
+    color: black !important;
+  }
+}
